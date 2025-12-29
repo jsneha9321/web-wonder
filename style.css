@@ -382,6 +382,8 @@ h2 span { color: #29cef9; }
   border: none;
 }
 
+/* insta */
+
 .insta-scroll{
   padding:80px 0 40px;
   background:linear-gradient(180deg,#050814,#090f2a);
@@ -785,4 +787,5 @@ h2 span { color: #29cef9; }
 .promo-popup{
   pointer-events:auto;
 }
+
 
