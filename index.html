@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Web Wonder – Digital Agency</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<!-- PAGE LOADER -->
+<div id="pageLoader">
+  <div class="loader-inner">
+    <div class="loader-logo">Web<span>Wonder</span></div>
+    <p class="loader-tagline">Design • Code • Growth</p>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+
+<script>
+window.addEventListener("load", function () {
+  const loader = document.getElementById("pageLoader");
+
+  // increase loading time (milliseconds)
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.visibility = "hidden";
+  }, 1800); // ⏱️ change this value (1500–2500 is ideal)
+});
+</script>
+
+
+<body class="dark">
+
+
+
+
+<div class="theme-toggle" onclick="toggleTheme()">🌓</div>
+<a href="https://wa.me/919900464841" class="whatsapp" target="_blank">💬</a>
+
+<header class="nav">
+  <div class="logo">
+    <img src="C:\Users\Admin\source\repos\web wonder\images\logo.jpeg" alt="Web Wonder Logo">
+  </div>
+
+  <nav class="nav-links" id="navMenu">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#testimonials">Clients</a>
+    <a href="#contact" class="btn" onclick="openModal()">Get Quote</a>
+  </nav>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content reveal">
+    <h1 class="hero-text">
+      We Build <span>Digital</span><br>
+      <span class="highlight">Experiences</span>
+    </h1>
+    <p>Designing premium digital solutions that grow brands worldwide.</p>
+    <!--<button class="primary-btn" onclick="openModal()">Free Consultation</button>-->
+  </div>
+
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+
+  <div class="hero-badges">
+  <span>⚡ Fast Delivery</span>
+  <span>💎 Premium Design</span>
+  <span>📈 Growth Focused</span>
+</div>
+
+</section>
+
+
+
+<!--
+<div id="leadModal" class="modal">
+  <div class="modal-content glass">
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <h2>Free Consultation</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Tell us about your project"></textarea>
+      <button type="submit" class="primary-btn">Submit</button>
+    </form>
+  </div>
+</div>
+-->
+
+
+<!-- ABOUT -->
+<section id="about" class="about">
+<h2>About <span>Web Wonder</span></h2>
+<p class="about-text">
+Web Wonder is a high-end digital agency delivering visually stunning,
+performance-driven websites.
+</p>
+
+<div class="about-grid">
+  <div class="about-card">🚀 International Quality Standards</div>
+  <div class="about-card">🎯 Conversion-Driven Approach</div>
+  <div class="about-card">⚡ Fast, Secure & Scalable</div>
+  <div class="about-card">💎 Premium UI / UX Excellence</div>
+</div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+<div class="stats-wrapper">
+  <div class="stat-box">
+    <div class="big-icon float">😊</div>
+    <h3 class="counter" data-target="150">0</h3>
+    <p>Happy Clients</p>
+  </div>
+  <div class="stat-box">
+    <div class="big-icon float">📂</div>
+    <h3 class="counter" data-target="300">0</h3>
+    <p>Projects Completed</p>
+  </div>
+  <div class="stat-box">
+    <div class="big-icon float">⭐</div>
+    <h3 class="counter" data-target="5">0</h3>
+    <p>Years Experience</p>
+  </div>
+</div>
+</section>
+
+<!-- ================= SERVICES AUTO SCROLL ================= -->
+<section id="services" class="services">
+  <h2>Our <span>Services</span></h2>
+
+  <div class="auto-scroll">
+    <div class="service-track">
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <span>Web Development</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <span>UI / UX Design</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🛒</div>
+        <span>E-Commerce</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📢</div>
+        <span>Branding</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <span>Social Media</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <span>SEO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY AUTO SCROLL ================= -->
+<section id="gallery" class="gallery">
+  <h2>Our <span>Design. Code. Growth. The Web Wonder way</span></h2>
+
+  <div class="auto-scroll">
+    <div class="gallery-track">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\20331e7f44a1ba700af1c48b8b71863a.jpg" alt="Project 1">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\cb9ceba6d358f7b93010774646c5a015.jpg" alt="Project 2">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\a24bf346b214d06cbd3ab4f84f9c2447.jpg" alt="Project 3">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\6bed2c1e03b823b55f6491defdf8db3c.jpg"s alt="Project 4">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\609eaa4321ab5ba8f0b7a9828192873c.jpg" alt="Project 5">
+      <img src= "C:\Users\Admin\source\repos\web wonder\images\c5ee9a3e9edddcbb7c745c4f0161b1a7.jpg" alt="Project 5">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\d2511ac080a7808c33a44a98a203351f.jpg" alt="Project 5">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\6db014d25536694dc4464881518830ed.jpg" alt="Project 5">
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSTAGRAM AUTO SCROLL ================= -->
+<section class="insta-scroll">
+  <h2>Follow Us on <span>@web_wonder03</span></h2>
+
+  <div class="insta-track">
+    <a href="https://www.instagram.com/p/POST1/" target="_blank">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\17.png" alt="">
+    </a>
+    <a href="https://www.instagram.com/p/POST2/" target="_blank">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\22.png" alt="">
+    </a>
+    <a href="https://www.instagram.com/p/POST3/" target="_blank">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\23.png"alt="">
+    </a>
+    <a href="https://www.instagram.com/web_wonder03/" target="_blank">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\image 5.png"alt="">
+    </a>
+
+    <!-- duplicate for seamless loop -->
+    <a href="https://www.instagram.com/p/POST1/" target="_blank">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\image 10.png" alt="">
+    </a>
+    <a href="https://www.instagram.com/p/POST2/" target="_blank">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\image 13.png" alt="">
+    </a>
+
+    <a href="https://www.instagram.com/p/POST2/" target="_blank">
+      <img src="C:\Users\Admin\source\repos\web wonder\images\image 9.mp4" alt="">
+    </a>
+  </div>
+</section>
+s
+
+<!-- ================= TESTIMONIALS AUTO SCROLL ================= -->
+<section id="testimonials" class="testimonials">
+  <h2>Client <span>Testimonials</span></h2>
+
+  <div class="testimonial-scroll">
+    <div class="testimonial-track">
+      <div class="testimonial-card">
+        <p>“Outstanding website quality.”</p>
+        <h4>— Startup Founder</h4>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Premium UI/UX and fast delivery.”</p>
+        <h4>— Business Owner</h4>
+      </div>
+
+      <!-- Duplicate for seamless loop -->
+      <div class="testimonial-card">
+        <p>“Outstanding website quality.”</p>
+        <h4>— Startup Founder</h4>
+      </div>
+
+      <div class="testimonial-card">
+        <p>“Premium UI/UX and fast delivery.”</p>
+        <h4>— Business Owner</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section id="contact" class="cta">
+  <h2 class="moving-text">Let’s Build Something Amazing</h2>
+  <!-- <div class="cta-btn-wrap">
+    <button class="primary-btn dark" onclick="openModal()">Start Your Project</button>-->
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <div class="logo">
+    <img src="C:\Users\Admin\source\repos\web wonder\images\logo.jpeg" alt="Web Wonder Logo">
+  </div>
+      <p>Premium digital solutions for modern brands.</p>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+
+      <p>
+        <span class="icon">📧</span>
+        <a href="mailto:sj411692@gmail.com">sj411692@gmail.com</a>
+      </p>
+
+      <p>
+        <span class="icon">📞</span>
+        <a href="tel:9900464841">+91 99004 64841</a>
+      </p>
+
+      <p>
+        <span class="icon">📍</span>
+        Bangalore, India
+      </p>
+
+      <p>
+        <span class="icon">📸</span>
+        <a href="https://www.instagram.com/web_wonder03/" target="_blank">
+          @web_wonder03
+        </a>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Web Wonder. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- PROMO STRIP -->
+<div class="promo-strip">
+  🚀 Limited Time Offer: Get a <span>FREE UI/UX Audit</span> on your first project!
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
