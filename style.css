@@ -508,6 +508,13 @@ h2 span { color: #29cef9; }
   }
 }
 
+.footer .logo img {
+  max-width: 160px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+
 
 /* CURSOR GLOW */
 .cursor-glow {
@@ -778,3 +785,4 @@ h2 span { color: #29cef9; }
 .promo-popup{
   pointer-events:auto;
 }
+
