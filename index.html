@@ -2,334 +2,448 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Web Wonder – Digital Agency</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Web Wonder — Digital Design Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<!-- PAGE LOADER -->
+<!-- ================= PAGE LOADER ================= -->
 <div id="pageLoader">
   <div class="loader-inner">
     <div class="loader-logo">Web<span>Wonder</span></div>
-    <p class="loader-tagline">Design • Code • Growth</p>
+    <p class="loader-tagline">Design. Build. Grow. — Websites that turn visitors into customers</p>
     <div class="loader-bar"></div>
   </div>
 </div>
 
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
 
-<script>
-window.addEventListener("load", function () {
-  const loader = document.getElementById("pageLoader");
+<a href="https://wa.me/919900464841?text=Hello%20Web%20Wonder%2C%20I%27d%20like%20to%20start%20a%20project." class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" width="26" height="26" fill="#fff"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.5-.3-.4C5.2 17.7 4.6 16.4 4.6 15c0-5.7 4.7-10.4 10.4-10.4 5.7 0 10.4 4.7 10.4 10.4S21.1 24.8 16 24.8zm5.9-7.8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1.1-1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.9-.8 2.1-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
 
-  // increase loading time (milliseconds)
-  setTimeout(() => {
-    loader.style.opacity = "0";
-    loader.style.visibility = "hidden";
-  }, 1800); // ⏱️ change this value (1500–2500 is ideal)
-});
-</script>
+<div class="promo-strip">🚀 Limited-time offer: <span>Free UI/UX audit</span> on your first project — mention it in the quote form.</div>
 
-
-<body class="dark">
-
-
-
-
-<div class="theme-toggle" onclick="toggleTheme()">🌓</div>
-<a href="https://wa.me/919900464841" class="whatsapp" target="_blank">💬</a>
-
-<header class="nav">
- <div class="logo">
-  <img src="images/logo.jpeg" alt="Web Wonder logo">
-</div>
-
-
-  <nav class="nav-links" id="navMenu">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#testimonials">Clients</a>
-    <a href="#contact" class="btn" onclick="openModal()">Get Quote</a>
+<!-- ================= NAV ================= -->
+<header id="siteHeader">
+  <nav>
+    <a href="#top" class="brand"><img src="logo.png" alt="Web Wonder logo"></a>
+    <div class="navlinks" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#testimonials">Clients</a>
+      <a href="#contact" class="nav-cta">Get Quote</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </nav>
-
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </header>
 
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content reveal">
-    <h1 class="hero-text">
-      We Build <span>Digital</span><br>
-      <span class="highlight">Experiences</span>
-    </h1>
-    <p>Designing premium digital solutions that grow brands worldwide.</p>
-    <!--<button class="primary-btn" onclick="openModal()">Free Consultation</button>-->
-  </div>
-
-  <div class="orb o1"></div>
-  <div class="orb o2"></div>
-  <div class="orb o3"></div>
-
-  <div class="hero-badges">
-  <span>⚡ Fast Delivery</span>
-  <span>💎 Premium Design</span>
-  <span>📈 Growth Focused</span>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#process">Process</a>
+  <a href="#work">Work</a>
+  <a href="#testimonials">Clients</a>
+  <a href="#contact">Get Quote</a>
 </div>
 
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="float-orb" style="width:16px;height:16px;background:var(--cyan); top:22%; right:14%;"></div>
+  <div class="float-orb" style="width:10px;height:10px;background:var(--blue); top:68%; left:6%; animation-delay:1.5s;"></div>
+  <div class="float-orb" style="width:7px;height:7px;background:#fff; top:40%; left:46%; animation-delay:3s;"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow fade-up d1">
+        <span class="orbit-dot" style="width:16px;height:16px;">
+          <svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="15"/><circle class="dot" cx="33" cy="8" r="3"/></svg>
+        </span>
+        WordPress &amp; Web Design Studio
+      </div>
+      <h1 class="fade-up d2">Websites that make small brands look <span class="grad-text">impossible to ignore.</span></h1>
+      <p class="lede fade-up d3">We design and build fast, responsive WordPress and WooCommerce sites for brands that want their site to actually convert &mdash; not just exist.</p>
+      <div class="hero-actions fade-up d4">
+        <a href="#contact" class="btn-primary">Start a project →</a>
+        <a href="#work" class="btn-ghost">See recent work</a>
+      </div>
+      <div class="hero-tags fade-up d4">
+        <span>WordPress</span>
+        <span>WooCommerce</span>
+        <span>Responsive Design</span>
+        <span>Brand &amp; Logo</span>
+        <span>SEO &amp; Maintenance</span>
+      </div>
+    </div>
+    <div class="hero-visual fade-up d3">
+      <div class="mock-browser">
+        <div class="mock-topbar">
+          <span class="mock-dot" style="background:#FF5F57;"></span>
+          <span class="mock-dot" style="background:#FEBC2E;"></span>
+          <span class="mock-dot" style="background:#28C840;"></span>
+          <div class="mock-url">yourbrand.com</div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-nav">
+            <span class="mock-logo-dot"></span>
+            <span class="mock-line short"></span>
+            <span class="mock-pill"></span>
+          </div>
+          <div class="mock-hero">
+            <span class="mock-line w70"></span>
+            <span class="mock-line w45"></span>
+            <span class="mock-cta"></span>
+          </div>
+          <div class="mock-grid">
+            <div class="mock-card"></div>
+            <div class="mock-card"></div>
+            <div class="mock-card"></div>
+          </div>
+        </div>
+      </div>
+      <div class="float-card fc1">
+        <span class="orbit-dot" style="width:22px;height:22px; color:var(--blue);">
+          <svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="15"/><circle class="dot" cx="33" cy="8" r="3"/></svg>
+        </span>
+        <div><strong>+38%</strong><span>Avg. conversion lift</span></div>
+      </div>
+      <div class="float-card fc2">
+        <span class="tick">✓</span>
+        <div><strong>Launch ready</strong><span>Mobile · Speed · SEO</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ================= TICKER ================= -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>WordPress Development</span>
+    <span>WooCommerce Stores</span>
+    <span>Responsive Design</span>
+    <span>Brand &amp; Logo Design</span>
+    <span>SEO &amp; Maintenance</span>
+    <span>Webflow &amp; Headless CMS</span>
+    <span>WordPress Development</span>
+    <span>WooCommerce Stores</span>
+    <span>Responsive Design</span>
+    <span>Brand &amp; Logo Design</span>
+    <span>SEO &amp; Maintenance</span>
+    <span>Webflow &amp; Headless CMS</span>
+  </div>
+</div>
 
+<!-- ================= TRUSTED BY ================= -->
+<div class="trusted-strip">
+  <div class="wrap trusted-inner">
+    <span class="trusted-label">Trusted by growing brands</span>
+    <div class="trusted-logos">
+      <span>NORTH&nbsp;&amp;&nbsp;CO</span>
+      <span>ORBIT&nbsp;LABS</span>
+      <span>BRIGHTLEAF</span>
+      <span>STUDIO&nbsp;NINE</span>
+      <span>HAVEN&nbsp;GOODS</span>
+    </div>
+  </div>
+</div>
 
-<!--
-<div id="leadModal" class="modal">
-  <div class="modal-content glass">
-    <span class="close-btn" onclick="closeModal()">×</span>
-    <h2>Free Consultation</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Tell us about your project"></textarea>
-      <button type="submit" class="primary-btn">Submit</button>
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="about-card">
+        <span class="quote-mark">“</span>
+        <p>A website should do one job well: turn visitors into customers &mdash; without slowing them down or confusing them.</p>
+        <div class="about-mini-grid">
+          <div class="about-mini-card">🚀 International quality standards</div>
+          <div class="about-mini-card">🎯 Conversion-driven approach</div>
+          <div class="about-mini-card">⚡ Fast, secure &amp; scalable</div>
+          <div class="about-mini-card">💎 Premium UI/UX finish</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">
+        <span class="orbit-dot" style="width:16px;height:16px; color:var(--ink);">
+          <svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="15"/><circle class="dot" cx="33" cy="8" r="3"/></svg>
+        </span>
+        About Web Wonder
+      </div>
+      <h2 style="font-size:clamp(26px,3vw,34px); margin-bottom:20px;">A high-end digital studio, built for growing brands.</h2>
+      <p style="color:var(--muted); font-size:16px; line-height:1.75; max-width:520px; margin-bottom:36px;">
+        Web Wonder designs and builds visually striking, performance-driven websites. No bloated retainers, no confusing jargon &mdash; every project is scoped clearly, priced upfront, and handed over ready for you to manage yourself.
+      </p>
+      <div class="about-stats">
+        <div class="stat"><b>New</b><span>Studio, now open for founding clients</span></div>
+        <div class="stat"><b>1:1</b><span>Direct with your developer, no middlemen</span></div>
+        <div class="stat"><b>&lt; 2.5s</b><span>Target page load time</span></div>
+        <div class="stat"><b>Fixed</b><span>Price quoted upfront, no surprises</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <span class="orbit-dot" style="width:16px;height:16px; color:var(--ink);">
+          <svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="15"/><circle class="dot" cx="33" cy="8" r="3"/></svg>
+        </span>
+        What we do
+      </div>
+      <h2>Everything a growing brand needs from its website — nothing it doesn't.</h2>
+      <p>Pick a single service or hand over the whole build. Every project ships responsive, fast, and easy for you to maintain afterward.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 4v5"/></svg></div>
+        <h3>WordPress Development</h3>
+        <p>Custom themes and page-builder sites built for speed, SEO, and easy content updates.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"/></svg></div>
+        <h3>WooCommerce Stores</h3>
+        <p>Product catalogs, checkout flows, and payment setup for stores that need to actually sell.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="10" height="20" rx="2"/><rect x="16" y="7" width="4" height="10" rx="1"/></svg></div>
+        <h3>Responsive Web Design</h3>
+        <p>Every layout is designed mobile-first, then scaled up — so it looks right on any screen.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.3L18.5 21 12 16.5 5.5 21l2-7.7L2 9h7z"/></svg></div>
+        <h3>Logo &amp; Brand Identity</h3>
+        <p>A logo, color system, and type pairing that carries through the entire site consistently.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h3>Social Media Creatives</h3>
+        <p>On-brand post templates and graphics so your site and social feed feel like one brand.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 12l4-2M3 12l4 2"/><path d="M12 3v4M12 21v-4"/></svg></div>
+        <h3>SEO &amp; Website Maintenance</h3>
+        <p>On-page SEO setup, uptime monitoring, and monthly updates so the site keeps performing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <span class="orbit-dot" style="width:16px;height:16px; color:var(--ink);">
+          <svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="15"/><circle class="dot" cx="33" cy="8" r="3"/></svg>
+        </span>
+        How a project runs
+      </div>
+      <h2>Five stages, start to launch.</h2>
+      <p>No jargon, no surprise invoices. You'll know exactly what stage the project is in at every point.</p>
+    </div>
+    <div class="process-list reveal">
+      <div class="process-row">
+        <div class="process-num">01</div>
+        <h3>Discovery call</h3>
+        <p>We talk through your business, audience, and what the site needs to achieve — then we scope the build and quote a fixed price.</p>
+      </div>
+      <div class="process-row">
+        <div class="process-num">02</div>
+        <h3>Wireframe &amp; content plan</h3>
+        <p>A simple layout plan for every page, so we agree on structure and messaging before any visual design starts.</p>
+      </div>
+      <div class="process-row">
+        <div class="process-num">03</div>
+        <h3>Design</h3>
+        <p>A full visual design using your brand colors and logo, shared for feedback before a single line of code is written.</p>
+      </div>
+      <div class="process-row">
+        <div class="process-num">04</div>
+        <h3>Build in WordPress</h3>
+        <p>The approved design gets built out, tested across devices, and connected to any tools you need — forms, store, analytics.</p>
+      </div>
+      <div class="process-row">
+        <div class="process-num">05</div>
+        <h3>Launch &amp; handover</h3>
+        <p>The site goes live, and you get a short walkthrough so you're confident editing content yourself afterward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Selected work</div>
+      <h2>A few of the builds in progress.</h2>
+      <p>Web Wonder is a new studio — this section fills in with real client work as each project ships. Here's the kind of build it's built for.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card reveal">
+        <div class="mock-browser mock-browser--card">
+          <div class="mock-topbar"><span class="mock-dot" style="background:#FF5F57;"></span><span class="mock-dot" style="background:#FEBC2E;"></span><span class="mock-dot" style="background:#28C840;"></span></div>
+          <div class="mock-body mock-body--saas">
+            <div class="mock-nav"><span class="mock-logo-dot"></span><span class="mock-line short"></span><span class="mock-pill"></span></div>
+            <div class="mock-hero mock-hero--grad">
+              <span class="mock-line w70 light"></span>
+              <span class="mock-line w45 light"></span>
+              <span class="mock-cta light"></span>
+            </div>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="tag">B2B · WORDPRESS</div>
+          <h3>Product marketing site</h3>
+          <p>Multi-section landing page with pricing tiers and a lead-capture form.</p>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="mock-browser mock-browser--card">
+          <div class="mock-topbar"><span class="mock-dot" style="background:#FF5F57;"></span><span class="mock-dot" style="background:#FEBC2E;"></span><span class="mock-dot" style="background:#28C840;"></span></div>
+          <div class="mock-body">
+            <div class="mock-nav"><span class="mock-logo-dot"></span><span class="mock-line short"></span><span class="mock-pill"></span></div>
+            <div class="mock-grid mock-grid--shop">
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="tag">E-COMMERCE · WOOCOMMERCE</div>
+          <h3>Online storefront</h3>
+          <p>Full catalog, cart, and checkout with a mobile-first browsing flow.</p>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="mock-browser mock-browser--card">
+          <div class="mock-topbar"><span class="mock-dot" style="background:#FF5F57;"></span><span class="mock-dot" style="background:#FEBC2E;"></span><span class="mock-dot" style="background:#28C840;"></span></div>
+          <div class="mock-body">
+            <div class="mock-nav"><span class="mock-logo-dot"></span><span class="mock-line short"></span><span class="mock-pill"></span></div>
+            <div class="mock-gallery">
+              <div class="mock-tile"></div>
+              <div class="mock-tile tall"></div>
+              <div class="mock-tile"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="tag">CREATIVE · WEBFLOW</div>
+          <h3>Design studio site</h3>
+          <p>A gallery-led portfolio site with case studies and client logos.</p>
+        </div>
+      </div>
+    </div>
+    <p class="work-note">Have a project brief already? Skip ahead to the quote form below.</p>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <span class="orbit-dot" style="width:16px;height:16px; color:var(--ink);">
+          <svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="15"/><circle class="dot" cx="33" cy="8" r="3"/></svg>
+        </span>
+        Client feedback
+      </div>
+      <h2>What it's like to work together.</h2>
+      <p>A few words from early collaborators on what the process feels like, start to finish.</p>
+    </div>
+    <div class="tcard-row">
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>The whole process was clear from day one — no confusing back and forth, just steady progress until launch.</p>
+        <div class="who"><div class="avatar"></div><div><strong>Founder</strong><span>D2C Skincare Brand</span></div></div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>Our page load time dropped noticeably and the site finally feels as premium as the product actually is.</p>
+        <div class="who"><div class="avatar"></div><div><strong>Marketing Lead</strong><span>SaaS Startup</span></div></div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>I can edit pages myself now without calling anyone — that handover walkthrough made all the difference.</p>
+        <div class="who"><div class="avatar"></div><div><strong>Owner</strong><span>Local Retail Business</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-left reveal">
+      <div class="eyebrow" style="color:var(--cyan);">Get a quote</div>
+      <h2>Tell us about the project.</h2>
+      <p>Share a few details and you'll get a fixed-price quote back within a day — no long sales calls needed.</p>
+      <div class="contact-detail">
+        <a href="mailto:hello@webwonder.studio">hello@webwonder.studio</a>
+        <a href="https://www.instagram.com/web_wonder03/" target="_blank">@web_wonder03</a>
+        <span style="font-size:14px; color:var(--muted-light);">Bengaluru, Karnataka, India</span>
+      </div>
+    </div>
+    <form class="form reveal" onsubmit="event.preventDefault(); this.querySelector('.form-msg').style.display='block';">
+      <div class="form-row">
+        <div>
+          <label>Name</label>
+          <input type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label>Email</label>
+          <input type="email" placeholder="you@company.com" required>
+        </div>
+      </div>
+      <div>
+        <label>Project type</label>
+        <select>
+          <option>New WordPress site</option>
+          <option>WooCommerce store</option>
+          <option>Redesign of existing site</option>
+          <option>Branding / logo only</option>
+          <option>Ongoing maintenance</option>
+        </select>
+      </div>
+      <div>
+        <label>Project details</label>
+        <textarea rows="4" placeholder="What are you building, and what's the timeline?"></textarea>
+      </div>
+      <button class="btn-primary" type="submit" style="width:fit-content; border:none; cursor:pointer;">Send project brief →</button>
+      <p class="form-msg" style="display:none; font-size:13.5px; color:var(--cyan);">Thanks — this is a demo form. Connect it to your email or a form service to start receiving real briefs.</p>
     </form>
   </div>
-</div>
--->
-
-
-<!-- ABOUT -->
-<section id="about" class="about">
-<h2>About <span>Web Wonder</span></h2>
-<p class="about-text">
-Web Wonder is a high-end digital agency delivering visually stunning,
-performance-driven websites.
-</p>
-
-<div class="about-grid">
-  <div class="about-card">🚀 International Quality Standards</div>
-  <div class="about-card">🎯 Conversion-Driven Approach</div>
-  <div class="about-card">⚡ Fast, Secure & Scalable</div>
-  <div class="about-card">💎 Premium UI / UX Excellence</div>
-</div>
 </section>
 
-<!-- STATS -->
-<section class="stats">
-<div class="stats-wrapper">
-  <div class="stat-box">
-    <div class="big-icon float">😊</div>
-    <h3 class="counter" data-target="150">0</h3>
-    <p>Happy Clients</p>
-  </div>
-  <div class="stat-box">
-    <div class="big-icon float">📂</div>
-    <h3 class="counter" data-target="300">0</h3>
-    <p>Projects Completed</p>
-  </div>
-  <div class="stat-box">
-    <div class="big-icon float">⭐</div>
-    <h3 class="counter" data-target="5">0</h3>
-    <p>Years Experience</p>
-  </div>
-</div>
-</section>
-
-<!-- ================= SERVICES AUTO SCROLL ================= -->
-<section id="services" class="services">
-  <h2>Our <span>Services</span></h2>
-
-  <div class="auto-scroll">
-    <div class="service-track">
-      <div class="service-card">
-        <div class="service-icon">🌐</div>
-        <span>Web Development</span>
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Web Wonder">
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">🎨</div>
-        <span>UI / UX Design</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">🛒</div>
-        <span>E-Commerce</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">📢</div>
-        <span>Branding</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">📱</div>
-        <span>Social Media</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">🚀</div>
-        <span>SEO</span>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ================= GALLERY AUTO SCROLL ================= -->
-<section id="gallery" class="gallery">
-  <h2>Our <span>Design. Code. Growth. The Web Wonder way</span></h2>
-
-  <div class="auto-scroll">
-    <div class="gallery-track">
-      <img src="images/img3.jpg" alt="Image 3">
-      <img src="images/img4.jpg" alt="Image 4">
-      <img src="images/img5.jpg" alt="Image 5">
-      <img src="images/img6.jpg" alt="Image 6">
-    </div>
-  </div>
-</section>
-
-<!-- ================= INSTAGRAM AUTO SCROLL ================= -->
-
-  <section class="insta-scroll">
-  <h2>
-    Follow Us on 
-    <span>
-      <a href="https://www.instagram.com/web_wonder03/" target="_blank" class="insta-link">
-        @web_wonder03
-      </a>
-    </span>
-  </h2>
-
-  <!-- SCROLL TRACK -->
-  <div class="insta-track">
-    <a href="https://www.instagram.com/web_wonder03/" target="_blank">
-      <img src="images/17.png" alt="Instagram post 1">
-    </a>
-
-    <a href="https://www.instagram.com/web_wonder03/" target="_blank">
-      <img src="images/22.png" alt="Instagram post 2">
-    </a>
-
-    <a href="https://www.instagram.com/web_wonder03/" target="_blank">
-      <img src="images/23.png" alt="Instagram post 3">
-    </a>
-
-    <!-- DUPLICATE FOR SMOOTH LOOP -->
-    <a href="https://www.instagram.com/web_wonder03/" target="_blank">
-      <img src="images/17.png" alt="">
-    </a>
-
-    <a href="https://www.instagram.com/web_wonder03/" target="_blank">
-      <img src="images/22.png" alt="">
-    </a>
-
-    <a href="https://www.instagram.com/web_wonder03/" target="_blank">
-      <img src="images/23.png" alt="">
-    </a>
-  </div>
-</section>
-
-
-
-<!-- ================= TESTIMONIALS AUTO SCROLL ================= -->
-<section id="testimonials" class="testimonials">
-  <h2>Client <span>Testimonials</span></h2>
-
-  <div class="testimonial-scroll">
-    <div class="testimonial-track">
-      <div class="testimonial-card">
-        <p>“Outstanding website quality.”</p>
-        <h4>— Startup Founder</h4>
-      </div>
-
-      <div class="testimonial-card">
-        <p>“Premium UI/UX and fast delivery.”</p>
-        <h4>— Business Owner</h4>
-      </div>
-
-      <!-- Duplicate for seamless loop -->
-      <div class="testimonial-card">
-        <p>“Outstanding website quality.”</p>
-        <h4>— Startup Founder</h4>
-      </div>
-
-      <div class="testimonial-card">
-        <p>“Premium UI/UX and fast delivery.”</p>
-        <h4>— Business Owner</h4>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- CTA -->
-<section id="contact" class="cta">
-  <h2 class="moving-text">Let’s Build Something Amazing</h2>
-  <!-- <div class="cta-btn-wrap">
-    <button class="primary-btn dark" onclick="openModal()">Start Your Project</button>-->
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="footer-container">
-
-    <!-- Brand -->
-    <div class="footer-brand">
-      <div class="logo">
-        <img src="images/logo.jpeg" alt="Web Wonder logo">
-      </div>
-      <p>Premium digital solutions for modern brands.</p>
-    </div>
-
-    <!-- Contact -->
-    <div class="footer-contact">
-      <h4>Contact Us</h4>
-
-      <p>
-        <span class="icon">📧</span>
-        <a href="mailto:sj411692@gmail.com">sj411692@gmail.com</a>
-      </p>
-
-      <p>
-        <span class="icon">📞</span>
-        <a href="tel:9900464841">+91 99004 64841</a>
-      </p>
-
-      <p>
-        <span class="icon">📍</span>
-        Bangalore, India
-      </p>
-
-      <p>
-        <span class="icon">📸</span>
-        <a href="https://www.instagram.com/web_wonder03/" target="_blank">
-          @web_wonder03
-        </a>
-      </p>
-    </div>
-
-  </div>
-
-  <!-- Bottom -->
-  <div class="footer-bottom">
-    <p>© 2025 Web Wonder. All Rights Reserved.</p>
+    <div class="footer-bottom">© 2026 Web Wonder. All rights reserved. Bengaluru, India.</div>
   </div>
 </footer>
-
-<!-- PROMO STRIP -->
-<div class="promo-strip">
-  🚀 Limited Time Offer: Get a <span>FREE UI/UX Audit</span> on your first project!
-</div>
 
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
