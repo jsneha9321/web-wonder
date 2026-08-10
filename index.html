@@ -6,7 +6,7 @@
 <title>Web Wonder — Digital Design Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -22,17 +22,30 @@
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="cursor-glow" id="cursorGlow"></div>
 
-<div class="promo-strip">🚀 Limited-time offer: <span>Free UI/UX audit</span> on your first project — mention it in the quote form.</div>
+<div class="promo-strip">🚀 Limited-time offer: <span>Flat 20% off your first project</span> — mention it in the quote form.</div>
+
+<!-- ================= OFFER POPUP ================= -->
+<div class="offer-overlay" id="offerOverlay">
+  <div class="offer-modal">
+    <button class="offer-close" id="offerClose" aria-label="Close">✕</button>
+    <span class="offer-badge">Limited time</span>
+    <h3>Get 20% off your first website.</h3>
+    <p>Book a free consultation this month and lock in a discounted rate on any package — Starter, Business, or Premium. No strings attached, no pressure.</p>
+    <a href="#contact" class="btn-primary" id="offerCta">Claim my discount →</a>
+    <div class="offer-fine">Offer applies to new clients only. Ends soon.</div>
+  </div>
+</div>
 
 <!-- ================= NAV ================= -->
 <header id="siteHeader">
   <nav>
-    <a href="#top" class="brand"><img src="logo.png" alt="Web Wonder logo"></a>
+    <a href="#top" class="brand"><img src="data:image/png;base64,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" alt="Web Wonder logo" style="height:44px; width:auto;"></a>
     <div class="navlinks" id="navLinks">
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#process">Process</a>
       <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#blog">Blog</a>
       <a href="#testimonials">Clients</a>
       <a href="#contact" class="nav-cta">Get Quote</a>
     </div>
@@ -43,8 +56,9 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about">About</a>
   <a href="#services">Services</a>
-  <a href="#process">Process</a>
   <a href="#work">Work</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#blog">Blog</a>
   <a href="#testimonials">Clients</a>
   <a href="#contact">Get Quote</a>
 </div>
@@ -62,8 +76,8 @@
         </span>
         WordPress &amp; Web Design Studio
       </div>
-      <h1 class="fade-up d2">Websites that make small brands look <span class="grad-text">impossible to ignore.</span></h1>
-      <p class="lede fade-up d3">We design and build fast, responsive WordPress and WooCommerce sites for brands that want their site to actually convert &mdash; not just exist.</p>
+      <h1 class="fade-up d2">We build websites that <span class="grad-text">turn visitors into customers.</span></h1>
+      <p class="lede fade-up d3">High-performance WordPress and WooCommerce websites that help small businesses generate more leads, build credibility, and grow online — not just look good sitting there.</p>
       <div class="hero-actions fade-up d4">
         <a href="#contact" class="btn-primary">Start a project →</a>
         <a href="#work" class="btn-ghost">See recent work</a>
@@ -137,13 +151,12 @@
 <!-- ================= TRUSTED BY ================= -->
 <div class="trusted-strip">
   <div class="wrap trusted-inner">
-    <span class="trusted-label">Trusted by growing brands</span>
+    <span class="trusted-label">Recently built for</span>
     <div class="trusted-logos">
-      <span>NORTH&nbsp;&amp;&nbsp;CO</span>
-      <span>ORBIT&nbsp;LABS</span>
-      <span>BRIGHTLEAF</span>
-      <span>STUDIO&nbsp;NINE</span>
-      <span>HAVEN&nbsp;GOODS</span>
+      <a href="https://avanaelectrosystems.com/" target="_blank">Avana&nbsp;Electrosystems</a>
+      <a href="https://laratech.in/" target="_blank">Laratech</a>
+      <a href="https://tanusilks.com/" target="_blank">Tanu&nbsp;Silks</a>
+      <a href="https://groupunnati.com/" target="_blank">Group&nbsp;Unnati</a>
     </div>
   </div>
 </div>
@@ -154,12 +167,12 @@
     <div class="reveal">
       <div class="about-card">
         <span class="quote-mark">“</span>
-        <p>A website should do one job well: turn visitors into customers &mdash; without slowing them down or confusing them.</p>
+        <p>We're not a big agency, and we don't want to be. We're a small studio that takes on a handful of projects at a time, so yours gets our full attention — not a rotating cast of juniors.</p>
         <div class="about-mini-grid">
-          <div class="about-mini-card">🚀 International quality standards</div>
-          <div class="about-mini-card">🎯 Conversion-driven approach</div>
-          <div class="about-mini-card">⚡ Fast, secure &amp; scalable</div>
-          <div class="about-mini-card">💎 Premium UI/UX finish</div>
+          <div class="about-mini-card">🎯 One project at a time, done right</div>
+          <div class="about-mini-card">💬 You talk to the developer, always</div>
+          <div class="about-mini-card">⚡ Built fast, built to last</div>
+          <div class="about-mini-card">💎 Priced like a studio, not an agency</div>
         </div>
       </div>
     </div>
@@ -170,12 +183,15 @@
         </span>
         About Web Wonder
       </div>
-      <h2 style="font-size:clamp(26px,3vw,34px); margin-bottom:20px;">A high-end digital studio, built for growing brands.</h2>
+      <h2 style="font-size:clamp(26px,3vw,34px); margin-bottom:20px;">The website studio for businesses tired of being just another ticket number.</h2>
+      <p style="color:var(--muted); font-size:16px; line-height:1.75; max-width:520px; margin-bottom:24px;">
+        Web Wonder started because too many small businesses were getting the same story: a bloated retainer, a template site with someone else's stock photos, and a developer who disappears after launch. We do the opposite — every project is scoped clearly, priced upfront, and built by the same person from the first call to the final handover.
+      </p>
       <p style="color:var(--muted); font-size:16px; line-height:1.75; max-width:520px; margin-bottom:36px;">
-        Web Wonder designs and builds visually striking, performance-driven websites. No bloated retainers, no confusing jargon &mdash; every project is scoped clearly, priced upfront, and handed over ready for you to manage yourself.
+        Since opening, that approach has gone into everything from engineering firms and pharma distributors to sarees stores and cab services — real businesses, real deadlines, real websites still running today.
       </p>
       <div class="about-stats">
-        <div class="stat"><b>New</b><span>Studio, now open for founding clients</span></div>
+        <div class="stat"><b>20+</b><span>Live projects shipped across industries</span></div>
         <div class="stat"><b>1:1</b><span>Direct with your developer, no middlemen</span></div>
         <div class="stat"><b>&lt; 2.5s</b><span>Target page load time</span></div>
         <div class="stat"><b>Fixed</b><span>Price quoted upfront, no surprises</span></div>
@@ -233,6 +249,32 @@
   </div>
 </section>
 
+<!-- ================= INDUSTRIES ================= -->
+<section class="industries" id="industries">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <span class="orbit-dot" style="width:16px;height:16px; color:var(--ink);">
+          <svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="15"/><circle class="dot" cx="33" cy="8" r="3"/></svg>
+        </span>
+        Industries
+      </div>
+      <h2>Industries we build for.</h2>
+      <p>Real client work so far spans engineering, retail, and pharma distribution — and the same process adapts cleanly to these fields too.</p>
+    </div>
+    <div class="industry-grid reveal">
+      <span>Engineering &amp; Manufacturing</span>
+      <span>Retail &amp; Fashion</span>
+      <span>Healthcare &amp; Pharma</span>
+      <span>Real Estate &amp; Infrastructure</span>
+      <span>Restaurants &amp; Hospitality</span>
+      <span>Education</span>
+      <span>Startups &amp; SaaS</span>
+      <span>Travel &amp; Fitness</span>
+    </div>
+  </div>
+</section>
+
 <!-- ================= PROCESS ================= -->
 <section class="process" id="process">
   <div class="wrap">
@@ -243,105 +285,228 @@
         </span>
         How a project runs
       </div>
-      <h2>Five stages, start to launch.</h2>
+      <h2>Seven stages, start to launch.</h2>
       <p>No jargon, no surprise invoices. You'll know exactly what stage the project is in at every point.</p>
     </div>
     <div class="process-list reveal">
       <div class="process-row">
         <div class="process-num">01</div>
         <h3>Discovery call</h3>
-        <p>We talk through your business, audience, and what the site needs to achieve — then we scope the build and quote a fixed price.</p>
+        <p>We talk through your business, audience, and what the site needs to achieve.</p>
       </div>
       <div class="process-row">
         <div class="process-num">02</div>
-        <h3>Wireframe &amp; content plan</h3>
-        <p>A simple layout plan for every page, so we agree on structure and messaging before any visual design starts.</p>
+        <h3>Proposal &amp; quote</h3>
+        <p>A clear scope document and a fixed price — no surprise invoices once work starts.</p>
       </div>
       <div class="process-row">
         <div class="process-num">03</div>
-        <h3>Design</h3>
-        <p>A full visual design using your brand colors and logo, shared for feedback before a single line of code is written.</p>
+        <h3>UI design</h3>
+        <p>A full visual design using your brand colors and logo, shared for feedback before any code is written.</p>
       </div>
       <div class="process-row">
         <div class="process-num">04</div>
-        <h3>Build in WordPress</h3>
-        <p>The approved design gets built out, tested across devices, and connected to any tools you need — forms, store, analytics.</p>
+        <h3>Development</h3>
+        <p>The approved design gets built out in WordPress and connected to any tools you need — forms, store, analytics.</p>
       </div>
       <div class="process-row">
         <div class="process-num">05</div>
-        <h3>Launch &amp; handover</h3>
-        <p>The site goes live, and you get a short walkthrough so you're confident editing content yourself afterward.</p>
+        <h3>Testing</h3>
+        <p>Every page checked across devices and browsers — speed, forms, links, and mobile behaviour included.</p>
+      </div>
+      <div class="process-row">
+        <div class="process-num">06</div>
+        <h3>Launch</h3>
+        <p>The site goes live, with a short walkthrough so you're confident editing content yourself afterward.</p>
+      </div>
+      <div class="process-row">
+        <div class="process-num">07</div>
+        <h3>Support</h3>
+        <p>A window of post-launch support to fix anything that comes up once real visitors start using the site.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= WORK ================= -->
+<!-- ================= CASE STUDIES ================= -->
 <section class="work" id="work">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">Selected work</div>
-      <h2>A few of the builds in progress.</h2>
-      <p>Web Wonder is a new studio — this section fills in with real client work as each project ships. Here's the kind of build it's built for.</p>
+      <div class="eyebrow">Real client work</div>
+      <h2>Recent projects, and what they needed to solve.</h2>
+      <p>Four live sites built for real businesses — here's the goal behind each one and what it took to get there.</p>
     </div>
-    <div class="work-grid">
-      <div class="work-card reveal">
-        <div class="mock-browser mock-browser--card">
-          <div class="mock-topbar"><span class="mock-dot" style="background:#FF5F57;"></span><span class="mock-dot" style="background:#FEBC2E;"></span><span class="mock-dot" style="background:#28C840;"></span></div>
-          <div class="mock-body mock-body--saas">
-            <div class="mock-nav"><span class="mock-logo-dot"></span><span class="mock-line short"></span><span class="mock-pill"></span></div>
-            <div class="mock-hero mock-hero--grad">
-              <span class="mock-line w70 light"></span>
-              <span class="mock-line w45 light"></span>
-              <span class="mock-cta light"></span>
-            </div>
-          </div>
+    <div class="case-grid">
+      <div class="case-card reveal">
+        <div class="case-top">
+          <span class="case-industry">Engineering &amp; Automation</span>
+          <a href="https://avanaelectrosystems.com/" target="_blank" class="case-visit">Visit site ↗</a>
         </div>
-        <div class="work-info">
-          <div class="tag">B2B · WORDPRESS</div>
-          <h3>Product marketing site</h3>
-          <p>Multi-section landing page with pricing tiers and a lead-capture form.</p>
-        </div>
+        <h3>Avana Electrosystems</h3>
+        <div class="case-row"><b>Goal</b><span>Give an electrical automation engineering company a web presence that reflects its technical credibility to industrial clients.</span></div>
+        <div class="case-row"><b>Challenge</b><span>No mobile-friendly layout, and technical capabilities weren't easy for prospects to scan quickly.</span></div>
+        <div class="case-row"><b>Solution</b><span>A structured WordPress rebuild with clear service pages and a mobile-first responsive layout.</span></div>
+        <div class="case-row"><b>Result</b><span>A professional, fully responsive site industrial buyers can browse comfortably from any device.</span></div>
       </div>
-      <div class="work-card reveal">
-        <div class="mock-browser mock-browser--card">
-          <div class="mock-topbar"><span class="mock-dot" style="background:#FF5F57;"></span><span class="mock-dot" style="background:#FEBC2E;"></span><span class="mock-dot" style="background:#28C840;"></span></div>
-          <div class="mock-body">
-            <div class="mock-nav"><span class="mock-logo-dot"></span><span class="mock-line short"></span><span class="mock-pill"></span></div>
-            <div class="mock-grid mock-grid--shop">
-              <div class="mock-card"></div>
-              <div class="mock-card"></div>
-              <div class="mock-card"></div>
-              <div class="mock-card"></div>
-            </div>
-          </div>
+      <div class="case-card reveal">
+        <div class="case-top">
+          <span class="case-industry">Infrastructure &amp; Engineering</span>
+          <a href="https://laratech.in/" target="_blank" class="case-visit">Visit site ↗</a>
         </div>
-        <div class="work-info">
-          <div class="tag">E-COMMERCE · WOOCOMMERCE</div>
-          <h3>Online storefront</h3>
-          <p>Full catalog, cart, and checkout with a mobile-first browsing flow.</p>
-        </div>
+        <h3>Laratech</h3>
+        <div class="case-row"><b>Goal</b><span>Represent an infrastructure firm's range of services — townships, buildings, solar, transportation — clearly in one place.</span></div>
+        <div class="case-row"><b>Challenge</b><span>Multiple service verticals needed organizing without overwhelming a first-time visitor.</span></div>
+        <div class="case-row"><b>Solution</b><span>A WordPress site with clear navigation and dedicated pages per service line.</span></div>
+        <div class="case-row"><b>Result</b><span>An easy-to-navigate site that lets partners find the right service area in a couple of clicks.</span></div>
       </div>
-      <div class="work-card reveal">
-        <div class="mock-browser mock-browser--card">
-          <div class="mock-topbar"><span class="mock-dot" style="background:#FF5F57;"></span><span class="mock-dot" style="background:#FEBC2E;"></span><span class="mock-dot" style="background:#28C840;"></span></div>
-          <div class="mock-body">
-            <div class="mock-nav"><span class="mock-logo-dot"></span><span class="mock-line short"></span><span class="mock-pill"></span></div>
-            <div class="mock-gallery">
-              <div class="mock-tile"></div>
-              <div class="mock-tile tall"></div>
-              <div class="mock-tile"></div>
-            </div>
-          </div>
+      <div class="case-card reveal">
+        <div class="case-top">
+          <span class="case-industry">Retail &amp; Fashion</span>
+          <a href="https://tanusilks.com/" target="_blank" class="case-visit">Visit site ↗</a>
         </div>
-        <div class="work-info">
-          <div class="tag">CREATIVE · WEBFLOW</div>
-          <h3>Design studio site</h3>
-          <p>A gallery-led portfolio site with case studies and client logos.</p>
+        <h3>Tanu Silks</h3>
+        <div class="case-row"><b>Goal</b><span>Move a premium silk saree and bridal-wear boutique online with a shopping experience worthy of the product.</span></div>
+        <div class="case-row"><b>Challenge</b><span>Needed a full product catalog and checkout, built around mobile shopping behaviour.</span></div>
+        <div class="case-row"><b>Solution</b><span>A WooCommerce store with organized collections and a mobile-first browsing and checkout flow.</span></div>
+        <div class="case-row"><b>Result</b><span>A working online storefront customers can browse and order from directly.</span></div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-top">
+          <span class="case-industry">Healthcare &amp; Pharma</span>
+          <a href="https://groupunnati.com/" target="_blank" class="case-visit">Visit site ↗</a>
         </div>
+        <h3>Group Unnati</h3>
+        <div class="case-row"><b>Goal</b><span>Give a multi-branch pharmaceutical distribution group a clear, credible web presence for partners and customers.</span></div>
+        <div class="case-row"><b>Challenge</b><span>Branch details, contacts, and credentials needed structuring in a way that reads as trustworthy for the pharma sector.</span></div>
+        <div class="case-row"><b>Solution</b><span>A WordPress build that organizes branch information and services clearly by location.</span></div>
+        <div class="case-row"><b>Result</b><span>A clear, credible site visitors can use to find the right branch and get in touch.</span></div>
       </div>
     </div>
-    <p class="work-note">Have a project brief already? Skip ahead to the quote form below.</p>
+    <p class="work-note">Have a project brief already? Skip ahead to the contact section below.</p>
+
+    <div class="more-work reveal">
+      <h3 class="more-work-title">More live projects</h3>
+      <div class="mini-project-grid">
+        <a href="https://carltrix.com/" target="_blank" class="mini-project"><span class="mp-name">Carltrix</span><span class="mp-tag">Business setup consultancy · Dubai</span></a>
+        <a href="https://designlinesarchitects.com/" target="_blank" class="mini-project"><span class="mp-name">DesignLines Architects</span><span class="mp-tag">Architecture &amp; construction</span></a>
+        <a href="https://ellex-i.com/" target="_blank" class="mini-project"><span class="mp-name">Ellex-i</span><span class="mp-tag">Ophthalmology equipment</span></a>
+        <a href="https://essbeeagrotek.in/" target="_blank" class="mini-project"><span class="mp-name">Essbee Agrotek</span><span class="mp-tag">Spices &amp; food e-commerce</span></a>
+        <a href="https://ergoline.co.in/" target="_blank" class="mini-project"><span class="mp-name">Ergoline</span><span class="mp-tag">Office furniture manufacturer</span></a>
+        <a href="https://inboxhaircare.com/" target="_blank" class="mini-project"><span class="mp-name">Inbox Haircare</span><span class="mp-tag">Hair care e-commerce</span></a>
+        <a href="https://kaleindianfilmacademy.com/" target="_blank" class="mini-project"><span class="mp-name">Kale Indian Film Academy</span><span class="mp-tag">Film &amp; acting school</span></a>
+        <a href="https://masscoders.com/" target="_blank" class="mini-project"><span class="mp-name">MassCoders</span><span class="mp-tag">Coding education &amp; placements</span></a>
+        <a href="https://uniqueguardz.com/" target="_blank" class="mini-project"><span class="mp-name">Uniqueguardz</span><span class="mp-tag">Security services</span></a>
+        <a href="http://arishin.in/" target="_blank" class="mini-project"><span class="mp-name">Arishin</span><span class="mp-tag">Business website</span></a>
+        <a href="https://medicaleducationworld.com/" target="_blank" class="mini-project"><span class="mp-name">Medical Education World</span><span class="mp-tag">Medical education</span></a>
+        <a href="https://mahatirthayatras.com/" target="_blank" class="mini-project"><span class="mp-name">Maha Tirtha Yatras</span><span class="mp-tag">Pilgrimage &amp; travel</span></a>
+        <a href="https://iescindia.com/" target="_blank" class="mini-project"><span class="mp-name">IESC India</span><span class="mp-tag">Engineering services</span></a>
+        <a href="https://sequenthr.in/" target="_blank" class="mini-project"><span class="mp-name">Sequent HR</span><span class="mp-tag">HR &amp; staffing services</span></a>
+        <a href="https://surakshaconstruction.in/" target="_blank" class="mini-project"><span class="mp-name">Suraksha Construction</span><span class="mp-tag">Construction</span></a>
+        <a href="https://shanthaventures.com/" target="_blank" class="mini-project"><span class="mp-name">Shantha Ventures</span><span class="mp-tag">Real estate &amp; ventures</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <span class="orbit-dot" style="width:16px;height:16px; color:var(--ink);">
+          <svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="15"/><circle class="dot" cx="33" cy="8" r="3"/></svg>
+        </span>
+        Why Web Wonder
+      </div>
+      <h2>What working together actually looks like.</h2>
+      <p>Fewer promises, more of what actually matters when you're trusting someone with your business's front door.</p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="10" height="20" rx="2"/><rect x="16" y="7" width="4" height="10" rx="1"/></svg></div>
+        <h3>Mobile-first design</h3>
+        <p>Every site is designed for phones first, then scaled up — where most of your customers actually browse.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 12l4-2M3 12l4 2"/><path d="M12 3v4M12 21v-4"/></svg></div>
+        <h3>SEO-optimized builds</h3>
+        <p>Clean structure, fast pages, and on-page SEO set up from day one — not bolted on afterward.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 11-13h-7z"/></svg></div>
+        <h3>Fast turnaround</h3>
+        <p>Focused on one project at a time, so your build doesn't sit in a queue behind five others.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Ongoing support</h3>
+        <p>A support window after launch, so a broken link or a stuck form doesn't become your problem to solve alone.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Transparent communication</h3>
+        <p>You always know what stage the project is in — no vanishing for weeks between updates.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Direct with your developer</h3>
+        <p>No account managers relaying messages — you talk to the person actually building your site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PACKAGES ================= -->
+<section class="packages" id="pricing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <span class="orbit-dot" style="width:16px;height:16px; color:var(--ink);">
+          <svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="15"/><circle class="dot" cx="33" cy="8" r="3"/></svg>
+        </span>
+        Pricing
+      </div>
+      <h2>Straightforward packages, no hidden line items.</h2>
+      <p>A rough starting point — every quote is still scoped to your project on the discovery call. Prices in INR.</p>
+    </div>
+    <div class="price-offer-banner reveal">🎉 New client offer: 20% off any package this month — mention it on the discovery call.</div>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <span class="price-name">Starter</span>
+        <div class="price-amount"><span class="price-old">₹15,000</span>₹11,999</div>
+        <ul class="price-list">
+          <li>Up to 5 pages</li>
+          <li>Responsive design</li>
+          <li>Contact form</li>
+          <li>Basic on-page SEO</li>
+        </ul>
+        <a href="#contact" class="btn-ghost price-cta">Get started</a>
+      </div>
+      <div class="price-card price-card--featured">
+        <span class="price-badge">Most popular</span>
+        <span class="price-name">Business</span>
+        <div class="price-amount"><span class="price-old">₹30,000</span>₹24,999</div>
+        <ul class="price-list">
+          <li>Up to 10 pages</li>
+          <li>Blog setup</li>
+          <li>Speed optimization</li>
+          <li>Basic security hardening</li>
+          <li>On-page SEO</li>
+        </ul>
+        <a href="#contact" class="btn-primary price-cta">Get started</a>
+      </div>
+      <div class="price-card">
+        <span class="price-name">Premium</span>
+        <div class="price-amount"><span class="price-old">₹50,000+</span>₹42,999+</div>
+        <ul class="price-list">
+          <li>Fully custom design</li>
+          <li>WooCommerce store</li>
+          <li>Advanced SEO</li>
+          <li>Third-party integrations</li>
+        </ul>
+        <a href="#contact" class="btn-ghost price-cta">Get started</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -378,13 +543,78 @@
   </div>
 </section>
 
+<!-- ================= BLOG ================= -->
+<section class="blog" id="blog">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <span class="orbit-dot" style="width:16px;height:16px; color:var(--ink);">
+          <svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="15"/><circle class="dot" cx="33" cy="8" r="3"/></svg>
+        </span>
+        From the blog
+      </div>
+      <h2>Straightforward advice on getting your website right.</h2>
+      <p>Short, practical reads — no jargon, just what actually moves the needle for a small business website.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-cover bc1"><span>📈</span></div>
+        <div class="blog-body">
+          <span class="blog-tag">Strategy</span>
+          <h3>10 Reasons Every Small Business Needs a Website in 2026</h3>
+          <p>From credibility to discoverability — why a basic five-page site still outperforms relying on social media alone.</p>
+          <div class="blog-meta"><span>6 min read</span><span>·</span><span>Web Wonder Team</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-cover bc2"><span>⚙️</span></div>
+        <div class="blog-body">
+          <span class="blog-tag">Comparison</span>
+          <h3>WordPress vs Webflow: Which One Fits Your Business?</h3>
+          <p>A plain-language breakdown of cost, flexibility, and who should actually be maintaining the site after launch.</p>
+          <div class="blog-meta"><span>7 min read</span><span>·</span><span>Web Wonder Team</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-cover bc3"><span>🚫</span></div>
+        <div class="blog-body">
+          <span class="blog-tag">Mistakes</span>
+          <h3>Common Website Mistakes That Cost You Leads</h3>
+          <p>Slow load times, buried contact forms, no mobile testing — the small fixes that make the biggest difference.</p>
+          <div class="blog-meta"><span>5 min read</span><span>·</span><span>Web Wonder Team</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESOURCES ================= -->
+<section class="resources" id="resources">
+  <div class="wrap">
+    <div class="resources-grid">
+      <div class="lead-magnet reveal">
+        <div class="eyebrow" style="color:var(--cyan);">Not ready to hire yet?</div>
+        <h2>Get a free website audit.</h2>
+        <p>Send your current site (or GitHub Pages link) and get back a short, honest breakdown of what's slowing down conversions — no strings attached.</p>
+        <a href="#contact" class="btn-primary">Request a free audit →</a>
+      </div>
+      <div class="lead-magnet reveal" style="background:#fff; border:1px solid var(--line);">
+        <div class="eyebrow">Founding client offer</div>
+        <h2 style="color:var(--ink);">20% off, this month only.</h2>
+        <p style="color:var(--muted);">Book your free consultation before the month ends and lock in a discounted rate on any package below — Starter, Business, or Premium.</p>
+        <a href="#pricing" class="btn-ghost">See pricing →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= CONTACT ================= -->
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="contact-intro reveal">
       <div class="eyebrow" style="color:var(--cyan); justify-content:center;">Get in touch</div>
-      <h2>Let's talk about your project.</h2>
-      <p>Reach out directly — happy to talk through scope, timeline, and a fixed price before anything is agreed.</p>
+      <h2>Ready to grow your business online?</h2>
+      <p>Book a free consultation and let's build a website that helps you attract more customers — reach out directly, no forms or sales calls needed.</p>
     </div>
     <div class="contact-methods reveal">
       <a href="mailto:hello@webwonder.studio" class="contact-method-card">
@@ -411,12 +641,14 @@
   <div class="wrap">
     <div class="footer-row">
       <div class="footer-brand">
-        <img src="logo.png" alt="Web Wonder">
+        <img src="data:image/png;base64,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" alt="Web Wonder logo" style="height:38px; width:auto; filter:brightness(0) invert(1); opacity:0.95;">
       </div>
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#work">Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -424,6 +656,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
