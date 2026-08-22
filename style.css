@@ -127,12 +127,11 @@
   /* ---------- Nav ---------- */
   header{
     position:fixed; top:38px; left:0; right:0; z-index:100;
-    background:rgba(246,247,250,0.82);
-    backdrop-filter:blur(14px);
-    border-bottom:1px solid transparent;
-    transition:border-color .3s ease, box-shadow .3s ease;
+    background:#ffffff;
+    border-bottom:1px solid var(--line);
+    transition:box-shadow .3s ease;
   }
-  header.scrolled{border-color:var(--line); box-shadow:0 8px 30px rgba(11,18,32,0.06);}
+  header.scrolled{box-shadow:0 8px 30px rgba(11,18,32,0.08);}
   nav{
     display:flex; align-items:center; justify-content:space-between;
     padding:16px 32px; max-width:1180px; margin:0 auto;
